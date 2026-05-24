@@ -5,12 +5,14 @@ import { HomeComponent } from '../components/home/home.component';
 import { ProductResolver } from '../resolver/product.resolver';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { ProductsComponent } from '../components/products/products.component';
+import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 
 export const routes: Routes = [
     {   path: '', component: DashboardComponent },
     {   path: 'home', component: HomeComponent },
     {   path: 'about', component: AboutComponent }, 
     {   path: 'products', component: ProductsComponent, resolve: { product:ProductResolver } }, //, resolve: { product: ProductResolver } 
+    {   path: 'product-details/:id', component: ProductDetailsComponent },
     {   path: '', redirectTo:'/', pathMatch:'full'   },
     {   path: '**', redirectTo:'/'   },
 ];
