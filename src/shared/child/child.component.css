@@ -1,0 +1,13 @@
+/* :host(.hovered) {
+    background-color:antiquewhite;
+    display: block;
+} */
+.card-container {
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    padding: 15px;
+    border-radius: 10px;
+}
+.hovered { 
+    background-color:antiquewhite; 
+}

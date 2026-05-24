@@ -1,0 +1,18 @@
+<div class="m-0 p-0">
+    <app-navbar></app-navbar>
+
+    <div class="container mx-auto py-6 sm:px-6 lg:px-8">
+        <h1 class="text-2xl">Hello, {{title}}</h1>
+
+
+        <!-- <button (click)="copytoClipboard('Hello Data')">{{buttonText()}}</button> -->
+        <!-- <app-rightside [data]="rightSideData()"></app-rightside> -->
+        <!-- <button class="p-2 bg-black text-white rounded-lg" (click)="sendClick()">Send</button> -->
+
+
+        <div class="container mx-auto z-10">
+            <router-outlet />
+        </div>
+    </div>
+
+</div>
