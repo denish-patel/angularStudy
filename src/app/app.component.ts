@@ -14,7 +14,6 @@ import { NavbarComponent } from "../shared/navbar/navbar.component";
     standalone: true,
     imports: [RouterOutlet, RouterLink, HighlightDirective, InputComponent, RightsideComponent, ChildComponent, NavbarComponent],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
     encapsulation: ViewEncapsulation.None,
 })
 
@@ -93,6 +92,13 @@ export class AppComponent implements AfterViewInit, OnInit, AfterContentInit, Af
 
     public sendClick() {
         this.apiService.updateCount();
+    }
+
+    public handleNewItem(value: string) {
+        this.rightSideData.update((data) => {
+            data.push({ title: value, link: 'https://angular.dev' });
+            return data;
+        });
     }
 
 }

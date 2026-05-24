@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, effect, inject, input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -8,22 +8,24 @@ import { ApiService } from '../../services/api.service';
     templateUrl: './rightside.component.html',
     styleUrl: './rightside.component.css'
 })
-export class RightsideComponent {
+export class RightsideComponent implements OnInit {
 
     public data = input<Array<any>>([]);
     apiService = inject(ApiService);
+    @Output() newItemEvent = new EventEmitter<string>(); // Define the event
 
-    // public items: Array<any> = [
-    //     { title: 'Explore the Docs', link: 'https://angular.dev' },
-    //     { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-    //     { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-    //     { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-    //     { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-    // ];
-
-    constructor(){
-        effect(()=>{
+    constructor() {
+        effect(() => {
             console.log(this.apiService.count());
         })
+    }
+    
+    ngOnInit(): void {
+        this.addNewItem('New Item');
+    }
+
+
+    public addNewItem(value: string) {
+        this.newItemEvent.emit(value); // Emit the event
     }
 }

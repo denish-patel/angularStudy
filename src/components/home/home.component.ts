@@ -8,11 +8,12 @@ import { FormsModule } from "@angular/forms";
 import { Subscription } from 'rxjs';
 import { IProduct } from '../../models/IProducts';
 import { ApiService } from '../../services/api.service';
+import { BannerComponent } from "../../shared/banner/banner.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [FormsModule, CommonModule],
+    imports: [FormsModule, CommonModule, BannerComponent],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
 })
